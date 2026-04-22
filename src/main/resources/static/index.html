@@ -26,6 +26,279 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./adminlte/css/adminlte.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+      body {
+        font-family: 'Outfit', sans-serif !important;
+        background: url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed !important;
+      }
+
+      .app-wrapper {
+        min-height: 100vh;
+        background: rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(10px);
+      }
+
+      /* === Sidebar Styling === */
+      .app-sidebar {
+        background: rgba(25, 25, 35, 0.85) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .sidebar-brand {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+      
+      .brand-text {
+        font-weight: 600 !important;
+        letter-spacing: 1px;
+      }
+
+      .nav-sidebar .nav-item > .nav-link {
+        border-radius: 12px;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-sidebar .nav-item > .nav-link.active {
+        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%) !important;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        color: #fff !important;
+        transform: translateX(5px);
+      }
+
+      .nav-sidebar .nav-item > .nav-link:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.1) !important;
+        transform: translateX(5px);
+      }
+
+      /* === Header === */
+      .app-header {
+        background: rgba(255, 255, 255, 0.7) !important;
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      }
+      
+      .nav-link.fw-semibold {
+        color: #2d3436;
+        font-size: 1.1rem;
+      }
+
+      /* === App Content === */
+      .app-content {
+        padding-top: 25px;
+      }
+      
+      .breadcrumb-item a {
+        color: #FF6B6B;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      /* === Glassmorphism Card === */
+      .card {
+        background: rgba(255, 255, 255, 0.85) !important;
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+        border-radius: 24px !important;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05) !important;
+        overflow: hidden;
+      }
+
+      .card-header {
+        background: transparent !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+        padding: 25px 30px;
+      }
+      
+      .card-title {
+        color: #2d3436;
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
+      
+      .card-footer {
+        background: transparent !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+        padding: 20px 30px;
+      }
+
+      /* === Buttons === */
+      .btn-primary {
+        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%) !important;
+        border: none !important;
+        font-weight: 500;
+        border-radius: 12px;
+        padding: 8px 20px;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.45) !important;
+      }
+
+      /* === Search input === */
+      .input-group-text {
+        background: rgba(255, 255, 255, 0.6) !important;
+        border: 1px solid rgba(255, 107, 107, 0.3) !important;
+        border-right: none !important;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        color: #FF6B6B;
+      }
+      
+      .input-group .form-control {
+        border-radius: 12px !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border: 1px solid rgba(255, 107, 107, 0.3) !important;
+        border-left: none !important;
+        background: rgba(255, 255, 255, 0.6) !important;
+        padding: 10px 15px;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+      }
+
+      .input-group .form-control:focus {
+        box-shadow: none !important;
+        background: #fff !important;
+      }
+
+      /* === Table styling === */
+      .table {
+        vertical-align: middle;
+        margin-bottom: 0;
+      }
+
+      .table th {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.05) !important;
+        color: #636e72;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        padding: 15px 30px;
+      }
+
+      .table td {
+        padding: 18px 30px;
+        color: #2d3436;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(0,0,0,0.02) !important;
+      }
+
+      .table tbody tr {
+        transition: all 0.3s ease;
+      }
+
+      .table tbody tr:hover {
+        background-color: rgba(255, 107, 107, 0.04) !important;
+        transform: scale(1.005);
+      }
+
+      /* === Table action buttons === */
+      .btn-outline-secondary {
+        color: #0984e3 !important;
+        border: none !important;
+        background: rgba(9, 132, 227, 0.1) !important;
+        border-radius: 10px !important;
+        padding: 6px 12px !important;
+        transition: all 0.2s;
+      }
+      .btn-outline-secondary:hover {
+        background: #0984e3 !important;
+        color: #fff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(9, 132, 227, 0.3);
+      }
+
+      .btn-outline-danger {
+        color: #d63031 !important;
+        border: none !important;
+        background: rgba(214, 48, 49, 0.1) !important;
+        border-radius: 10px !important;
+        padding: 6px 12px !important;
+        margin-left: 8px;
+        transition: all 0.2s;
+      }
+      .btn-outline-danger:hover {
+        background: #d63031 !important;
+        color: #fff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(214, 48, 49, 0.3);
+      }
+      
+      /* === Pagination === */
+      .page-link {
+        border-radius: 8px !important;
+        margin: 0 3px;
+        border: none;
+        color: #2d3436;
+        font-weight: 500;
+        background: rgba(0,0,0,0.03);
+        transition: all 0.2s;
+      }
+      .page-link:hover {
+        background: rgba(255, 107, 107, 0.1);
+        color: #FF6B6B;
+      }
+      .page-item.active .page-link {
+        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%) !important;
+        box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3) !important;
+        color: #fff;
+      }
+      .page-item.disabled .page-link {
+        background: transparent;
+        opacity: 0.5;
+      }
+
+      /* === Modal === */
+      .modal-content {
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,0.7);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(25px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+      .modal-header {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding: 25px 30px;
+      }
+      .modal-title {
+        font-weight: 700;
+        color: #2d3436;
+      }
+      .modal-body {
+        padding: 30px;
+      }
+      .modal-footer {
+        border-top: 1px solid rgba(0,0,0,0.05);
+        padding: 20px 30px;
+      }
+      .form-control, .form-select {
+        border-radius: 12px;
+        padding: 12px 15px;
+        border: 1px solid rgba(0,0,0,0.1);
+        background: #f8f9fa;
+        font-size: 0.95rem;
+      }
+      .form-control:focus, .form-select:focus {
+        border-color: #FF8E53;
+        box-shadow: 0 0 0 4px rgba(255, 142, 83, 0.15);
+        background: #fff;
+      }
+      .form-label {
+        font-weight: 600;
+        color: #636e72;
+        margin-bottom: 8px;
+      }
+    </style>
   </head>
   <body class="layout-fixed sidebar-expand-lg sidebar-open bg-body-tertiary">
     <div class="app-wrapper">
@@ -191,7 +464,7 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const API_BASE = '/api/students';
+        const API_BASE = 'http://localhost:8080/api/students';
         const PAGE_SIZE = 5;
 
         let currentPage = 0; // 0-based theo backend
